@@ -9,7 +9,7 @@ const thumbsContainer = document.getElementById("thumbs");
 for (let i = 1; i <= total; i++) {
   const img = document.createElement("img");
   img.src = `./imagens/img (${i}).webp`;
-
+  img.loading = "lazy";
   img.addEventListener("click", () => {
     index = i - 1;
     updateGallery();
@@ -76,4 +76,3 @@ setInterval(() => {
   updateGallery();
 }, 4000);
 
-img.loading = "lazy";
