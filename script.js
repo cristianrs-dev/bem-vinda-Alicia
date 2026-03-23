@@ -8,7 +8,7 @@ const thumbsContainer = document.getElementById("thumbs");
 // 👉 gerar thumbs automaticamente
 for (let i = 1; i <= total; i++) {
   const img = document.createElement("img");
-  img.src = `./imagens/img (${i}).jpeg`;
+  img.src = `./imagens/img (${i}).webp`;
 
   img.addEventListener("click", () => {
     index = i - 1;
@@ -22,7 +22,7 @@ const thumbs = thumbsContainer.querySelectorAll("img");
 
 // 👉 atualizar galeria
 function updateGallery() {
- mainImage.src = `./imagens/img (${index + 1}).jpeg`;
+ mainImage.src = `./imagens/img (${index + 1}).webp`;
 
   thumbs.forEach(t => t.classList.remove("active"));
   thumbs[index].classList.add("active");
