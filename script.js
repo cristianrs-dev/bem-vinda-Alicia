@@ -1,5 +1,7 @@
 const total = 31;
 let index = 0;
+let userInteracted = false;
+
 let i=1
 
 const mainImage = document.getElementById("mainImage");
@@ -11,6 +13,7 @@ for (let i = 1; i <= total; i++) {
   img.src = `./imagens/img (${i}).webp`;
   img.loading = "lazy";
   img.addEventListener("click", () => {
+    userInteracted = true;
     index = i - 1;
     updateGallery();
   });
@@ -28,19 +31,24 @@ function updateGallery() {
   thumbs[index].classList.add("active");
 
   // 🔥 scroll acompanha
+   if (userInteracted) {
   thumbs[index].scrollIntoView({
     behavior: "smooth",
     inline: "center"
   });
 }
+}
 
 // 👉 botões
 document.querySelector(".next").onclick = () => {
+  userInteracted = true;
+
   index = (index + 1) % total;
   updateGallery();
 };
 
 document.querySelector(".prev").onclick = () => {
+  userInteracted = true;
   index = (index - 1 + total) % total;
   updateGallery();
 };
